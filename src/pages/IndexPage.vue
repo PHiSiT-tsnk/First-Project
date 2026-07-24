@@ -1,13 +1,13 @@
 <template>
 <div class="q-pa-md">
   <div class="q-gutter-y-md column" style="max-width: 300px">
-    <q-input color="purple-12" v-model="text" label="Label">
+    <q-input color="purple-12" v-model="text" label="Label (ชื่อสีม่วง)">
       <template v-slot:prepend>
         <q-icon name="event" />
       </template>
     </q-input>
 
-    <q-input color="teal" filled v-model="text" label="Label">
+    <q-input color="teal" filled v-model="text" label="Label (นามสกุลสีเขียว)">
       <template v-slot:prepend>
         <q-icon name="event" />
       </template>
@@ -68,36 +68,7 @@
 </template>
 
 <script setup>
-import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 
-const $q = useQuasar()
-
-const name = ref(null)
-const age = ref(null)
-const accept = ref(false)
-
-function onSubmit() {
-  if (accept.value !== true) {
-    $q.notify({
-      color: 'red-5',
-      textColor: 'white',
-      icon: 'warning',
-      message: 'You need to accept the license and terms first'
-    })
-  } else {
-    $q.notify({
-      color: 'green-4',
-      textColor: 'white',
-      icon: 'cloud_done',
-      message: 'Submitted'
-    })
-  }
-}
-
-function onReset() {
-  name.value = null
-  age.value = null
-  accept.value = false
-}
+const text = ref('')
 </script>
